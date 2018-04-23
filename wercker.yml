@@ -22,17 +22,17 @@ build:
     # Read more about steps on our dev center:
     # http://devcenter.wercker.com/docs/steps/index.html
   steps:
-#    - script:
-#        name: set-environment
-#        code: |
-#          export DOCKER_COMPOSE_VERSION=1.10.1
-#
-#    - script:
-#        name: install-docker-compose
-#        code: |
-#          curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-#          chmod +x docker-compose
-#          sudo mv docker-compose /usr/local/bin
+    - script:
+        name: set-environment
+        code: |
+          export DOCKER_COMPOSE_VERSION=1.10.1
+
+    - script:
+        name: install-docker-compose
+        code: |
+          curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+          chmod +x docker-compose
+          sudo mv docker-compose /usr/local/bin
 
     - script:
         name: composer
