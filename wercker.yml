@@ -3,6 +3,7 @@
 # Read more about containers on our dev center
 # http://devcenter.wercker.com/docs/containers/index.html
 box: debian
+
 # You can also use services such as databases. Read more on our dev center:
 # http://devcenter.wercker.com/docs/services/index.html
 # services:
@@ -21,6 +22,11 @@ build:
     # http://devcenter.wercker.com/docs/steps/index.html
   steps:
     - script:
-        name: echo
-        code: |
-          echo "hello world!"
+      name: echo
+      code: |
+        echo "hello world!"
+    - script:
+      name: ls
+      code: |
+        pwd
+        ls -al
