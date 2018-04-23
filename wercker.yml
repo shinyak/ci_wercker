@@ -22,9 +22,13 @@ build:
     # http://devcenter.wercker.com/docs/steps/index.html
   steps:
     - script:
+        name: set-environment
+        code: |
+          export DOCKER_COMPOSE_VERSION=1.10.1
+
+    - script:
         name: install-docker-compose
         code: |
-          sudo rm /usr/local/bin/docker-compose
           curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
           chmod +x docker-compose
           sudo mv docker-compose /usr/local/bin
@@ -39,6 +43,7 @@ build:
     - script:
         name: ls
         code: |
+          env
           pwd
           ls -al ./vendor
 
