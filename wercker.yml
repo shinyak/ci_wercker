@@ -30,11 +30,13 @@ build:
           chmod +x docker-compose
           #sudo mv docker-compose /usr/local/bin
           sudo mv docker-compose ./docker/
+          pwd
+          ls -al
 
-          ls -al docker
           cd docker
           #docker-compose up -d allinone
           #docker-compose run allinone /bin/bash -c 'cd /var/www/html/ci_travis && composer install --dev'
+          pwd
           ls -al
           ./docker-compose up -d allinone
           ./docker-compose run allinone /bin/bash -c 'cd /var/www/html/ci_travis && composer install --dev'
