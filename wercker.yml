@@ -23,20 +23,13 @@ build:
     # http://devcenter.wercker.com/docs/steps/index.html
   steps:
     - script:
-        name: set-environment
+        name: composer
         code: |
           export DOCKER_COMPOSE_VERSION=1.10.1
-
-    - script:
-        name: install-docker-compose
-        code: |
           curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
           chmod +x docker-compose
           sudo mv docker-compose /usr/local/bin
 
-    - script:
-        name: composer
-        code: |
           cd docker
           docker-compose up -d allinone
           docker-compose run allinone /bin/bash -c 'cd /var/www/html/ci_travis && composer install --dev'
@@ -51,6 +44,11 @@ build:
     - script:
         name: test
         code: |
+          export DOCKER_COMPOSE_VERSION=1.10.1
+          curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+          chmod +x docker-compose
+          sudo mv docker-compose /usr/local/bin
+
           cd docker
           docker-compose up -d allinone
           docker-compose run allinone /bin/bash -c 'cd /var/www/html/ci_travis && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit'
