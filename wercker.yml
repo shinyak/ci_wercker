@@ -3,7 +3,7 @@
 # Read more about containers on our dev center
 # http://devcenter.wercker.com/docs/containers/index.html
 box:
-  docker:1.12.3-dind
+  docker: skanno22/ci_sample:latest
 
 # You can also use services such as databases. Read more on our dev center:
 # http://devcenter.wercker.com/docs/services/index.html
@@ -23,33 +23,10 @@ build:
     # http://devcenter.wercker.com/docs/steps/index.html
   steps:
     - script:
-        name: composer
+        name: composer-install-and-test
         code: |
-          export DOCKER_COMPOSE_VERSION=1.10.1
-          curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-          chmod +x docker-compose
-          sudo mv docker-compose /usr/local/bin/docker-compose
-          cd docker
-          ls -alh /usr/local/bin/docker-compose
-#          docker-compose up -d allinone
-#          docker-compose run allinone /bin/bash -c 'cd /var/www/html/ci_travis && composer install --dev'
-#
-#    - script:
-#        name: ls
-#        code: |
-#          env
-#          pwd
-#          ls -al ./vendor
-#
-#    - script:
-#        name: test
-#        code: |
-#          export DOCKER_COMPOSE_VERSION=1.10.1
-#          curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-#          chmod +x docker-compose
-#          sudo mv docker-compose /usr/local/bin
-#
-#          cd docker
-#          docker-compose up -d allinone
-#          docker-compose run allinone /bin/bash -c 'cd /var/www/html/ci_travis && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit'
-#          docker-compose run allinone /bin/bash -c 'cd /var/www/html/ci_travis && ./vendor/bin/phpcs --report-width=120 --standard=PSR1 tests/Unit'
+          cd /var/www/html/ci_travis && composer install --dev
+          cd /var/www/html/ci_sample && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
+
+services:
+  - mysql:5.6.39
