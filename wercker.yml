@@ -30,7 +30,9 @@ build:
           chmod +x docker-compose
           sudo mv docker-compose /usr/local/bin/docker-compose
           cd docker
-          env
+          echo "PATH:"
+          echo $PATH
+          cat /pipeline/script*/run.sh
           docker-compose up -d allinone
           docker-compose run allinone /bin/bash -c 'cd /var/www/html/ci_travis && composer install --dev'
 
