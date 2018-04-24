@@ -65,3 +65,42 @@ test1:
           composer install --no-interaction
           phpunit tests/Unit
 
+test2:
+  steps:
+    - install-packages:
+        packages: git
+    - script:
+        name: do test
+        code: |-
+          curl -L https://phar.phpunit.de/phpunit.phar -o /usr/local/bin/phpunit
+          chmod +x /usr/local/bin/phpunit
+          curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+          composer install --no-interaction
+          phpunit tests/Unit
+
+test3:
+  steps:
+    - install-packages:
+        packages: git
+    - script:
+        name: do test
+        code: |-
+          curl -L https://phar.phpunit.de/phpunit.phar -o /usr/local/bin/phpunit
+          chmod +x /usr/local/bin/phpunit
+          curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+          composer install --no-interaction
+          phpunit tests/Unit
+
+test4:
+  steps:
+    - install-packages:
+        packages: git
+    - script:
+        name: do test
+        code: |-
+          curl -L https://phar.phpunit.de/phpunit.phar -o /usr/local/bin/phpunit
+          chmod +x /usr/local/bin/phpunit
+          curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+          composer install --no-interaction
+          phpunit tests/Unit
+
