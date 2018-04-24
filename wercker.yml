@@ -31,25 +31,25 @@ build:
           sudo mv docker-compose /usr/local/bin/docker-compose
           cd docker
           ls -alh /usr/local/bin/docker-compose
-          /usr/local/bin/docker-compose up -d allinone
-          /usr/local/bin/docker-compose run allinone /bin/bash -c 'cd /var/www/html/ci_travis && composer install --dev'
-
-    - script:
-        name: ls
-        code: |
-          env
-          pwd
-          ls -al ./vendor
-
-    - script:
-        name: test
-        code: |
-          export DOCKER_COMPOSE_VERSION=1.10.1
-          curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-          chmod +x docker-compose
-          sudo mv docker-compose /usr/local/bin
-
-          cd docker
-          docker-compose up -d allinone
-          docker-compose run allinone /bin/bash -c 'cd /var/www/html/ci_travis && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit'
-          docker-compose run allinone /bin/bash -c 'cd /var/www/html/ci_travis && ./vendor/bin/phpcs --report-width=120 --standard=PSR1 tests/Unit'
+#          docker-compose up -d allinone
+#          docker-compose run allinone /bin/bash -c 'cd /var/www/html/ci_travis && composer install --dev'
+#
+#    - script:
+#        name: ls
+#        code: |
+#          env
+#          pwd
+#          ls -al ./vendor
+#
+#    - script:
+#        name: test
+#        code: |
+#          export DOCKER_COMPOSE_VERSION=1.10.1
+#          curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+#          chmod +x docker-compose
+#          sudo mv docker-compose /usr/local/bin
+#
+#          cd docker
+#          docker-compose up -d allinone
+#          docker-compose run allinone /bin/bash -c 'cd /var/www/html/ci_travis && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit'
+#          docker-compose run allinone /bin/bash -c 'cd /var/www/html/ci_travis && ./vendor/bin/phpcs --report-width=120 --standard=PSR1 tests/Unit'
