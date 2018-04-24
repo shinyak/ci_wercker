@@ -66,5 +66,5 @@ echo1:
     - script:
         name: echo1
         code: |
-          echo 123456
+          echo 1234567
           env
