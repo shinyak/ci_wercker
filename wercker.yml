@@ -104,3 +104,9 @@ test4:
           composer install --no-interaction
           phpunit tests/Unit
 
+echo1:
+  steps:
+    - script:
+        name: echo1
+        code: |-
+          echo 12345
