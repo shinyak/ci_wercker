@@ -3,7 +3,7 @@
 # Read more about containers on our dev center
 # http://devcenter.wercker.com/docs/containers/index.html
 box:
-  id: skanno22/ci_sample
+  id: skanno22/ci_wercker
   tag: latest
 
 # You can also use services such as databases. Read more on our dev center:
@@ -26,40 +26,40 @@ build:
     - script:
         name: composer-install-and-test
         code: |
-          cd /var/www/html/ci_travis && composer install --dev
-          cd /var/www/html/ci_sample && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
+          cd /var/www/html/ci_wercker && composer install --dev
+          cd /var/www/html/ci_wercker && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
 
 test1:
   steps:
     - script:
         name: composer-install-and-test1
         code: |
-          cd /var/www/html/ci_travis && composer install --dev
-          cd /var/www/html/ci_sample && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
+          cd /var/www/html/ci_wercker && composer install --dev
+          cd /var/www/html/ci_wercker && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
 
 test2:
   steps:
     - script:
         name: composer-install-and-test2
         code: |
-          cd /var/www/html/ci_travis && composer install --dev
-          cd /var/www/html/ci_sample && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
+          cd /var/www/html/ci_wercker && composer install --dev
+          cd /var/www/html/ci_wercker && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
 
 test3:
   steps:
     - script:
         name: composer-install-and-test3
         code: |
-          cd /var/www/html/ci_travis && composer install --dev
-          cd /var/www/html/ci_sample && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
+          cd /var/www/html/ci_wercker && composer install --dev
+          cd /var/www/html/ci_wercker && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
 
 test4:
   steps:
     - script:
         name: composer-install-and-test4
         code: |
-          cd /var/www/html/ci_travis && composer install --dev
-          cd /var/www/html/ci_sample && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
+          cd /var/www/html/ci_wercker && composer install --dev
+          cd /var/www/html/ci_wercker && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
 
 echo1:
   steps:
