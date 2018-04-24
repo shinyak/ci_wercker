@@ -31,3 +31,4 @@ build:
 
 services:
   - mysql:5.6.39
+    cmd: export MYSQL_ALLOW_EMPTY_PASSWORD=1
