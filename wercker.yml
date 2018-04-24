@@ -61,3 +61,10 @@ test4:
           cd /var/www/html/ci_travis && composer install --dev
           cd /var/www/html/ci_sample && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
 
+echo1:
+  steps:
+    - script:
+        name: echo1
+        code: |
+          echo 123456
+          env
