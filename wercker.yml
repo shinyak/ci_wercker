@@ -30,7 +30,7 @@ build:
           cd /var/www/html/ci_sample && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
 
 services:
-  - name: mysql:5.6.39
+  - name: mysql
     id: mysql
     tag: 5.6.39
     cmd: export MYSQL_ALLOW_EMPTY_PASSWORD=1
