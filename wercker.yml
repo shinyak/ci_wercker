@@ -59,11 +59,13 @@ test1:
     - script:
         name: do test
         code: |-
+          date
           curl -L https://phar.phpunit.de/phpunit.phar -o /usr/local/bin/phpunit
           chmod +x /usr/local/bin/phpunit
           curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
           composer install --no-interaction
           phpunit tests/Unit
+          date
 
 test2:
   steps:
@@ -72,11 +74,13 @@ test2:
     - script:
         name: do test
         code: |-
+          date
           curl -L https://phar.phpunit.de/phpunit.phar -o /usr/local/bin/phpunit
           chmod +x /usr/local/bin/phpunit
           curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
           composer install --no-interaction
           phpunit tests/Unit
+          date
 
 test3:
   steps:
@@ -85,11 +89,13 @@ test3:
     - script:
         name: do test
         code: |-
+          date
           curl -L https://phar.phpunit.de/phpunit.phar -o /usr/local/bin/phpunit
           chmod +x /usr/local/bin/phpunit
           curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
           composer install --no-interaction
           phpunit tests/Unit
+          date
 
 test4:
   steps:
@@ -98,11 +104,13 @@ test4:
     - script:
         name: do test
         code: |-
+          date
           curl -L https://phar.phpunit.de/phpunit.phar -o /usr/local/bin/phpunit
           chmod +x /usr/local/bin/phpunit
           curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
           composer install --no-interaction
           phpunit tests/Unit
+          date
 
 echo1:
   steps:
