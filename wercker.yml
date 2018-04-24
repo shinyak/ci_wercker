@@ -29,11 +29,35 @@ build:
           cd /var/www/html/ci_travis && composer install --dev
           cd /var/www/html/ci_sample && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
 
-services:
-  - name: mysql
-    id: mysql
-    tag: 5.6.39
-    environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD=1
-    ports:
-      - "13306:3306"
+test1:
+  steps:
+    - script:
+        name: composer-install-and-test1
+        code: |
+          cd /var/www/html/ci_travis && composer install --dev
+          cd /var/www/html/ci_sample && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
+
+test2:
+  steps:
+    - script:
+        name: composer-install-and-test2
+        code: |
+          cd /var/www/html/ci_travis && composer install --dev
+          cd /var/www/html/ci_sample && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
+
+test3:
+  steps:
+    - script:
+        name: composer-install-and-test3
+        code: |
+          cd /var/www/html/ci_travis && composer install --dev
+          cd /var/www/html/ci_sample && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
+
+test4:
+  steps:
+    - script:
+        name: composer-install-and-test4
+        code: |
+          cd /var/www/html/ci_travis && composer install --dev
+          cd /var/www/html/ci_sample && ls -al ./vendor/bin && ./vendor/bin/phpunit tests/Unit
+
